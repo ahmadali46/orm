@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="container">
+    <form action=" " method="post" novalidate class="shadow p-5">
+      {% csrf_token %} {% for fm in form %}
+  
+      <div class="form-group mb-3">
+        {{fm.label_tag}}{{fm}}<small class="text-danger"
+          >{{fm.errors|striptags}}</small
+        >
+      </div>
+      {% endfor %}
+      <input type="submit" value="update" class="btn btn-primary" />
+    </form>
+  </div>
+
+
+
+  {% if form %} {% for emp in form %}
+  <tr>
+   
+    <td>{{emp.first_name}}</td>
+    <td>{{emp.details}}</td>
+    details
+
+    
+  
+    <td>
+        {% endfor %} {% endif %} 
+
+     
+        
+        {% if curs %} {% for emp in curs %}
+        <tr>
+         
+          <td>{{emp.course_id}}</td>
+          <td>{{emp.last_name}}</td>
+          <td>{{emp.course_name}}</td>
+          <td>{{emp.result_grade}}</td>
+         
+          
+        
+          <td>
+              {% endfor %} {% endif %}   
+{% endblock  %} 
